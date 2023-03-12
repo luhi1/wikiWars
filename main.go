@@ -21,6 +21,8 @@ var eventSpecific = "2"
 var articles []string
 var pointsAwarded = 1
 
+//Ik this isn't efficient, but Kill Yourself!
+
 type Wiki struct {
 	Batchcomplete string `json:"batchcomplete"`
 	Continue      struct {
