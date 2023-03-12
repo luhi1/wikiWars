@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <title>ParX Home</title>
+</head>
+<body>
+    <article>
+        <div class = "grid">
+            <div>
+                <kbd>Jayden : {{.JPoints}}</kbd>
+                <form>
+                    <button class="outline contrast" name = "name" value = "Jayden" type = "submit" formmethod="POST" formaction="/">Jayden++</button>
+                </form>
+            </div>
+
+            <div>
+                <kbd>Michael : {{.MPoints}}</kbd>
+                <form>
+                    <button class="outline contrast" name = "name" value = "Michael" type = "submit" formmethod="POST" formaction="/">Michael++</button>
+                </form>
+            </div>
+
+            <div>
+                <kbd>Carlo : {{.CPoints}}</kbd>
+                <form>
+                    <button class="outline contrast" name = "name" value = "Carlo" type = "submit" formmethod="POST" formaction="/">Carlo++</button>
+                </form>
+            </div>
+        </div>
+
+        <h1>Event: {{.Event}}</h1>
+
+
+        {{if eq .Event "Exclusions"}}
+            <kbd>You are excluded from using : {{.EventSpecific}}</kbd>
+            <h1></h1>
+        {{end}}
+
+        {{if eq .Event "Minimum Clicks"}}
+            <article class = "grid">
+                <div>
+                    <h6>Michael's Minimum Clicks</h6>
+                    <input type = "number" placeholder = "Michael">
+                </div>
+                <div>
+                    <h6>Jayden's Minimum Clicks</h6>
+                    <input type = "number" placeholder = "Jayden">
+                </div>
+                <div>
+                    <h6>Carlo's Minimum Clicks</h6>
+                    <input type = "number" placeholder = "Carlo">
+                </div>
+            </article>
+            <iframe src="https://vclock.com/timer/#countdown=00:10:00&enabled=0&seconds=600&sound=xylophone&loop=1" width="100%" height="400px">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        {{else}}
+            <iframe src="https://vclock.com/stopwatch/" width="100%" height="400px">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        {{end}}
+        <h2></h2>
+        <div class = "grid">
+            <form>
+                <button class="outline contrast" name = "name" value = "RESET" type = "submit" formmethod="POST" formaction="/">Reset Wiki Pages</button>
+            </form>
+            <form>
+                <button class="contrast" name = "name" value = "DEMOLISH" type = "submit" formmethod="POST" formaction="/">Completely Reroll!</button>
+            </form>
+        </div>
+
+        {{range $i := .Article}}
+            <iframe src="https://en.wikipedia.org/wiki/{{$i}}" width="100%" height="750px">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+            <h6></h6>
+        {{end}}
+    </article>
+</body>
+</html>
