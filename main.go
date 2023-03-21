@@ -100,7 +100,7 @@ func main() {
 		}
 		myUI.Article = articles
 
-		if event == "Exclusions" && eventSpecific != "0" {
+		if event == "Exclusions" {
 			pointsAwarded = 2
 			eventSpecific = exclusions[rand.Intn(3)]
 		}
